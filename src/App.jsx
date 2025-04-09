@@ -11,7 +11,7 @@ function App() {
     const newTab = window.open("", "_blank");
 
     try {
-      const response = await fetch("https://tweets-backend-f5hv.onrender.com/generate-map", {
+      const response = await fetch("https://tweets-backend-ep3k.onrender.com/generate-map", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
