@@ -11,13 +11,13 @@ function App() {
     const newTab = window.open("", "_blank");
 
     try {
-      const response = await fetch("http://localhost:8000/generate-map", {
+      const response = await fetch("https://tweets-backend-f5hv.onrender.com/generate-map", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          tweets: [{ text: inputTweet, location: inputLocation }]
+          tweets: [{ text: inputTweet, location: inputLocation }],
         }),
       });
 
@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#6a1b9a] to-[#b084f5] text-white text-center p-5 relative">
       {/* Navbar */}
-      <nav className="w-full fixed top-0 bg-[#1b0137] p-4 flex justify-between items-center shadow-lg">
+      <nav className="w-full fixed top-0 bg-[#1b0137] p-4 flex justify-between items-center shadow-lg z-10">
         <button
           className="text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -58,7 +58,7 @@ function App() {
       <div
         className={`fixed top-0 left-0 w-64 h-full bg-gradient-to-b from-[#1b0137] to-[#4c006e] transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out shadow-xl`}
+        } transition-transform duration-300 ease-in-out shadow-xl z-20`}
       >
         <button
           className="absolute top-4 right-4 text-white"
@@ -90,7 +90,7 @@ function App() {
       </div>
 
       {/* Page Content */}
-      <main className="w-full max-w-xl mt-20">
+      <main className="w-full max-w-xl mt-20 z-0">
         {currentPage === "home" && (
           <div>
             <h2 className="text-6xl font-bold text-gray-100">Welcome</h2>
